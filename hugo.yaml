@@ -3,11 +3,18 @@ locale: en-us
 title: Papaz Stack
 theme: PaperMod
 
+markup:
+  goldmark:
+    extensions:
+      # Keep apostrophes and hyphens as typed. No smart dashes.
+      typographer: false
+
 params:
   description: Custom PCs, upgrades, and repairs in Loveland and Fort Collins, Colorado.
   mainSections: [blog]
   contact:
-    email: ""   # TODO: add the business email; the footer hides it while empty
+    email: ""        # TODO: business email. The footer and contact section hide it while this is empty.
+    formAction: ""   # TODO: quote form endpoint (Formspree or a Cloudflare form). Empty keeps the form disabled.
     area: Loveland and Fort Collins, CO
 
 taxonomies:

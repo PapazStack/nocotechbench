@@ -1,0 +1,13 @@
+<a class="home-build" href="{{ .RelPermalink }}">
+  <figure>
+    <img src="{{ .Params.image | default "images/placeholder-build.svg" | relURL }}" alt="{{ .Params.imageAlt | default .Title }}" width="1200" height="1600" loading="lazy">
+    <figcaption>
+      <strong>{{ .Title }}</strong>
+      {{- with .Params.tagline }}
+      <span>{{ . }}</span>
+      {{- else }}
+      {{- with .Params.budget }}<span>{{ . }}</span>{{ end }}
+      {{- end }}
+    </figcaption>
+  </figure>
+</a>
