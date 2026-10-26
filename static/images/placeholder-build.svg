@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Placeholder for a build photo">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2b2d33"/>
+      <stop offset="1" stop-color="#16171a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <g fill="none" stroke="#5b5e66" stroke-width="6" stroke-linejoin="round">
+    <rect x="430" y="170" width="340" height="520" rx="24"/>
+    <rect x="470" y="220" width="200" height="420" rx="10"/>
+    <circle cx="720" cy="260" r="22"/>
+    <path d="M700 330h40M700 360h40M700 390h40"/>
+    <circle cx="570" cy="330" r="60"/>
+    <circle cx="570" cy="510" r="60"/>
+  </g>
+  <text x="600" y="770" fill="#8b8e96" font-family="system-ui, sans-serif" font-size="34" text-anchor="middle">Build photo coming soon</text>
+</svg>

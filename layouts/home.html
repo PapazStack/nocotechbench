@@ -1,0 +1,83 @@
+{{- define "main" }}
+<div class="home">
+
+  {{- with .Params.hero }}
+  <section class="home-hero">
+    <div class="home-hero-text">
+      <h1>{{ .heading }}</h1>
+      <p class="home-lede">{{ .subheading }}</p>
+      <div class="home-actions">
+        {{- with .primary }}<a class="btn btn-primary" href="{{ .url | relLangURL }}">{{ .text }}</a>{{ end }}
+        {{- with .secondary }}<a class="btn" href="{{ .url | relLangURL }}">{{ .text }}</a>{{ end }}
+      </div>
+    </div>
+    {{- with .image }}
+    <img class="home-hero-img" src="{{ . | relURL }}" alt="{{ $.Params.hero.imageAlt }}" width="1200" height="900">
+    {{- end }}
+  </section>
+  {{- end }}
+
+  <section class="home-section" aria-labelledby="what-i-do">
+    <div class="home-section-head">
+      <h2 id="what-i-do">What I do</h2>
+      <a class="btn btn-small" href="{{ "services/" | relLangURL }}">All services</a>
+    </div>
+    <div class="home-grid">
+      {{- range .Params.services }}
+      <article class="home-card">
+        <span class="home-icon" aria-hidden="true">{{ partial "home_icon.html" .icon }}</span>
+        <h3>{{ .title }}</h3>
+        <p>{{ .text }}</p>
+      </article>
+      {{- end }}
+    </div>
+  </section>
+
+  {{- $builds := (where site.RegularPages "Section" "builds").ByDate.Reverse | first 3 }}
+  <section class="home-section" aria-labelledby="recent-builds">
+    <div class="home-section-head">
+      <h2 id="recent-builds">Recent builds</h2>
+      {{- if $builds }}<a class="btn btn-small" href="{{ "builds/" | relLangURL }}">All builds</a>{{ end }}
+    </div>
+    {{- if $builds }}
+    <div class="home-grid">
+      {{- range $builds }}
+      <a class="home-build" href="{{ .RelPermalink }}">
+        <figure>
+          <img src="{{ .Params.image | default "images/placeholder-build.svg" | relURL }}" alt="{{ .Params.imageAlt | default .Title }}" width="1200" height="900" loading="lazy">
+          <figcaption>
+            <strong>{{ .Title }}</strong>
+            {{- with .Params.budget }}<span>{{ . }}</span>{{ end }}
+          </figcaption>
+        </figure>
+      </a>
+      {{- end }}
+    </div>
+    {{- else }}
+    <p class="home-empty">Build photos are on the way.</p>
+    {{- end }}
+  </section>
+
+  {{- $posts := where site.RegularPages "Type" "in" site.Params.mainSections | first 3 }}
+  <section class="home-section" aria-labelledby="latest-posts">
+    <div class="home-section-head">
+      <h2 id="latest-posts">Latest from the blog</h2>
+      {{- if $posts }}<a class="btn btn-small" href="{{ "blog/" | relLangURL }}">All posts</a>{{ end }}
+    </div>
+    {{- if $posts }}
+    <div class="home-grid">
+      {{- range $posts }}
+      <a class="home-card home-post" href="{{ .RelPermalink }}">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_medium" }}</time>
+        <h3>{{ .Title }}</h3>
+        <p>{{ .Summary | plainify | truncate 140 }}</p>
+      </a>
+      {{- end }}
+    </div>
+    {{- else }}
+    <p class="home-empty">First posts are coming soon.</p>
+    {{- end }}
+  </section>
+
+</div>
+{{- end }}

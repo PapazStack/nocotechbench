@@ -2,3 +2,23 @@ baseURL: https://papazstack.com/
 locale: en-us
 title: Papaz Stack
 theme: PaperMod
+
+params:
+  description: Custom PCs, upgrades, and repairs in Loveland and Fort Collins, Colorado.
+  mainSections: [blog]
+  contact:
+    email: ""   # TODO: add the business email; the footer hides it while empty
+    area: Loveland and Fort Collins, CO
+
+taxonomies:
+  category: categories
+  tag: tags
+
+menus:
+  main:
+    - { name: Home, pageRef: /, weight: 10 }
+    - { name: PC Services, pageRef: /services, weight: 20 }
+    - { name: Builds, pageRef: /builds, weight: 30 }
+    - { name: Blog, pageRef: /blog, weight: 40 }
+    - { name: Resources, pageRef: /resources, weight: 50 }
+    - { name: About & Contact, pageRef: /about, weight: 60 }

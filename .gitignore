@@ -1,1 +1,3 @@
-public/n.hugo_build.locknresources/_gen/
+public/
+.hugo_build.lock
+resources/_gen/
