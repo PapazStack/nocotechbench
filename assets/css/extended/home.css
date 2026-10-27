@@ -112,6 +112,10 @@
     gap: var(--gap);
 }
 
+.home-grid-services {
+    grid-template-columns: repeat(2, 1fr);
+}
+
 .home-grid-builds {
     grid-template-columns: repeat(2, 1fr);
 }

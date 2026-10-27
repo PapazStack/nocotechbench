@@ -1,26 +1,26 @@
 ---
 title: PC Services
 layout: services
-description: Custom PC builds, PCPartPicker lists, upgrades, and repairs in Loveland and Fort Collins.
+description: Custom PC builds, PCPartPicker lists, upgrades, and some repairs and tune-ups in Loveland and Fort Collins.
 lede: Local to Loveland and Fort Collins. Off-hours and weekends.
-intro: I build custom PCs, make PCPartPicker lists, and do upgrades and repairs. I fit the work in after my job and on weekends.
+intro: I build custom PCs, help you pick parts, and do upgrades. I also do some repairs and tune-ups. I fit the work in after my job and on weekends.
 priceTodo: Replace each From $TODO with a real starting price.
 services:
-  - title: Custom build
+  - title: Custom PC builds
     text: I build the PC around your budget and what you play or work on.
     price: "From $TODO"
-  - title: PCPartPicker list
-    text: A PCPartPicker list you can buy yourself, with a short note on why I picked each part.
+  - title: PCPartPicker lists
+    text: I help you pick parts that fit your budget and what you use the PC for. You get a PCPartPicker list you can buy yourself, with a short note on why I picked each part.
     price: "From $TODO"
   - title: Upgrades
-    text: RAM, storage, a graphics card, or cooling. I install it in the PC you already have.
+    text: On a desktop I can swap the GPU, RAM, an SSD or other storage, the CPU, the power supply, or the cooling. On a laptop I can do RAM, an SSD, the battery, or a fan.
     price: "From $TODO"
-  - title: "Repairs and tune-ups"
-    text: Diagnosing what's wrong, cleaning out dust, or reinstalling Windows.
+  - title: Some repairs and tune-ups
+    text: Slow PC cleanup, a Windows reinstall, getting files backed up or moved, hardware diagnosis and part swaps, cleaning and dusting, and fixing boot problems.
     price: "From $TODO"
 steps:
   - title: Message me
-    text: Tell me what you need. A new PC, a parts list, an upgrade, or a repair.
+    text: Tell me what you need. A new PC, a parts list, an upgrade, or a repair or tune-up.
   - title: I send a quote or a parts list
     text: You get a price for the work, or a PCPartPicker list if you're buying the parts yourself.
   - title: I build it or fix it
