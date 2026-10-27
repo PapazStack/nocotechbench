@@ -14,13 +14,13 @@ hero:
 services:
   - title: Custom PC builds
     icon: cpu
-    text: I build the PC around your budget and what you play or work on.
+    text: I build the PC around your budget and what you play or work on. You order the parts.
   - title: PCPartPicker lists
     icon: list
-    text: I help you pick parts that fit your budget and what you use the PC for.
+    text: I help you pick parts that fit your budget and what you use the PC for. You order them.
   - title: Upgrades
     icon: upgrade
-    text: GPU, RAM, storage, CPU, power supply, or cooling. On a laptop, RAM, an SSD, the battery, or a fan.
+    text: GPU, RAM, storage, CPU, power supply, or cooling. On a laptop, RAM, an SSD, the battery, or a fan. You order the part.
   - title: Some repairs and tune-ups
     icon: wrench
     text: Slow PC cleanup, a Windows reinstall, moving files, hardware diagnosis, dusting, and boot problems.
