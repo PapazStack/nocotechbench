@@ -1,0 +1,67 @@
+{{- define "main" }}
+<div class="page-wide">
+
+  <header>
+    <h1>{{ .Title }}</h1>
+    {{- with .Params.lede }}
+    <p class="home-lede">{{ . }}</p>
+    {{- end }}
+  </header>
+
+  {{- with .Params.intro }}
+  <p class="prose">{{ . }}</p>
+  {{- end }}
+
+  {{- $prices := "" }}
+  {{- range .Params.services }}
+  {{- $prices = printf "%s %s" $prices .price }}
+  {{- end }}
+  {{- if and .Params.priceTodo (in $prices "TODO") }}
+  <p class="todo-note"><strong>TODO:</strong> {{ .Params.priceTodo }}</p>
+  {{- end }}
+
+  <div class="service-grid">
+    {{- range .Params.services }}
+    <article class="home-card">
+      <h2>{{ .title }}</h2>
+      <p>{{ .text }}</p>
+      <p class="{{ if in .price "TODO" }}todo-note{{ else }}service-price{{ end }}">{{ .price }}</p>
+    </article>
+    {{- end }}
+  </div>
+
+  <section aria-labelledby="how-it-works">
+    <h2 id="how-it-works">How it works</h2>
+    <ol class="steps">
+      {{- range $i, $step := .Params.steps }}
+      <li>
+        <span class="step-num">{{ add $i 1 }}</span>
+        <div>
+          <h3>{{ $step.title }}</h3>
+          <p>{{ $step.text }}</p>
+        </div>
+      </li>
+      {{- end }}
+    </ol>
+  </section>
+
+  <section aria-labelledby="faq">
+    <h2 id="faq">FAQ</h2>
+    {{- range .Params.faqs }}
+    <div class="faq-item">
+      <h3>{{ .q }}</h3>
+      <p>{{ .a }}</p>
+      {{- with .todo }}
+      <p class="todo-note"><strong>TODO:</strong> {{ . }}</p>
+      {{- end }}
+    </div>
+    {{- end }}
+  </section>
+
+  <div class="home-actions">
+    <a class="btn btn-primary" href="{{ "about/#contact" | relLangURL }}">Get a quote</a>
+    <a class="btn" href="{{ "builds/" | relLangURL }}">See my builds</a>
+  </div>
+
+</div>
+{{- end }}

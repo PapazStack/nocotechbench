@@ -1,0 +1,21 @@
+{{- define "main" }}
+<div class="page-wide">
+
+  <header>
+    <h1>{{ .Title }}</h1>
+  </header>
+
+  {{- with .Content }}
+  <div class="prose">{{ . }}</div>
+  {{- end }}
+
+  <div class="home-grid home-grid-builds">
+    {{- range .RegularPages.ByDate.Reverse }}
+    {{- partial "build_card.html" . }}
+    {{- end }}
+  </div>
+
+  <p class="build-cta">Want one like this? <a class="btn btn-primary" href="{{ "about/#contact" | relLangURL }}">Get a quote</a></p>
+
+</div>
+{{- end }}

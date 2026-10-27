@@ -12,7 +12,7 @@
       </div>
     </div>
     {{- with .image }}
-    <img class="home-hero-img" src="{{ . | relURL }}" alt="{{ $.Params.hero.imageAlt }}" width="1200" height="900">
+    <img class="home-hero-img" src="{{ . | relURL }}" alt="{{ $.Params.hero.imageAlt }}" width="1200" height="1600" fetchpriority="high">
     {{- end }}
   </section>
   {{- end }}
@@ -40,17 +40,9 @@
       {{- if $builds }}<a class="btn btn-small" href="{{ "builds/" | relLangURL }}">All builds</a>{{ end }}
     </div>
     {{- if $builds }}
-    <div class="home-grid">
+    <div class="home-grid home-grid-builds">
       {{- range $builds }}
-      <a class="home-build" href="{{ .RelPermalink }}">
-        <figure>
-          <img src="{{ .Params.image | default "images/placeholder-build.svg" | relURL }}" alt="{{ .Params.imageAlt | default .Title }}" width="1200" height="900" loading="lazy">
-          <figcaption>
-            <strong>{{ .Title }}</strong>
-            {{- with .Params.budget }}<span>{{ . }}</span>{{ end }}
-          </figcaption>
-        </figure>
-      </a>
+      {{- partial "build_card.html" . }}
       {{- end }}
     </div>
     {{- else }}

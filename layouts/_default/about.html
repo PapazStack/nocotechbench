@@ -1,0 +1,58 @@
+{{- define "main" }}
+<article class="page-wide">
+
+  <header>
+    <h1>{{ .Params.heading | default .Title }}</h1>
+  </header>
+
+  {{- with .Content }}
+  <div class="prose">{{ . }}</div>
+  {{- end }}
+
+  <section id="contact" aria-labelledby="contact-heading">
+    <h2 id="contact-heading">Get a quote</h2>
+    {{- with .Params.contactText }}
+    <p class="prose">{{ . }}</p>
+    {{- end }}
+
+    {{- with site.Params.contact.email }}
+    <p class="prose contact-email">Email me at <a href="mailto:{{ . }}">{{ . }}</a>.</p>
+    {{- else }}
+    {{- with .Params.emailTodo }}
+    <p class="todo-note"><strong>TODO:</strong> {{ . }}</p>
+    {{- end }}
+    {{- end }}
+
+    {{- $action := site.Params.contact.formAction }}
+    {{- if not $action }}
+    {{- with .Params.formTodo }}
+    <p class="todo-note"><strong>TODO:</strong> {{ . }}</p>
+    {{- end }}
+    {{- end }}
+
+    <form class="quote-form" {{- with $action }}action="{{ . }}" method="post"{{ end }}>
+      <label for="quote-name">Name
+        <input id="quote-name" name="name" type="text" autocomplete="name" {{ if $action }}required{{ else }}disabled{{ end }}>
+      </label>
+      <label for="quote-email">Email
+        <input id="quote-email" name="email" type="email" autocomplete="email" {{ if $action }}required{{ else }}disabled{{ end }}>
+      </label>
+      <label for="quote-need">What do you need?
+        <select id="quote-need" name="need" {{ if $action }}required{{ else }}disabled{{ end }}>
+          <option value="">Pick one</option>
+          <option>Custom build</option>
+          <option>PCPartPicker list</option>
+          <option>Upgrade</option>
+          <option>Repair or tune-up</option>
+          <option>Not sure yet</option>
+        </select>
+      </label>
+      <label for="quote-message">Message
+        <textarea id="quote-message" name="message" rows="5" {{ if $action }}required{{ else }}disabled{{ end }}></textarea>
+      </label>
+      <button class="btn btn-primary" type="submit" {{ if not $action }}disabled{{ end }}>{{ if $action }}Send{{ else }}Form not set up yet{{ end }}</button>
+    </form>
+  </section>
+
+</article>
+{{- end }}
