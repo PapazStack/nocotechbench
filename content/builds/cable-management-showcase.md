@@ -31,7 +31,7 @@ gallery:
     caption: Back panel, closer
 ---
 
-This one is here to show cable routing. I'm not selling it.
+This one is here to show cable routing. It's not for sale.
 
 The graphics card is an MSI card. I put it in for looks. It does not work. There's no RAM and no storage, so this computer does not run.
 

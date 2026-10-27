@@ -10,7 +10,7 @@ markup:
       typographer: false
 
 params:
-  description: Custom PCs, upgrades, and repairs in Loveland and Fort Collins, Colorado.
+  description: Custom PC builds, parts lists, upgrades, and some repairs in Loveland and Fort Collins, Colorado.
   mainSections: [blog]
   contact:
     email: ""        # TODO: business email. The footer and contact section hide it while this is empty.

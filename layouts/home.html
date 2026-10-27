@@ -22,7 +22,7 @@
       <h2 id="what-i-do">What I do</h2>
       <a class="btn btn-small" href="{{ "services/" | relLangURL }}">All services</a>
     </div>
-    <div class="home-grid">
+    <div class="home-grid home-grid-services">
       {{- range .Params.services }}
       <article class="home-card">
         <span class="home-icon" aria-hidden="true">{{ partial "home_icon.html" .icon }}</span>
