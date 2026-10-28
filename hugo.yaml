@@ -13,8 +13,8 @@ params:
   description: Custom PC builds, parts lists, upgrades, and some repairs in Loveland and Fort Collins, Colorado.
   mainSections: [blog]
   contact:
-    email: ""        # TODO: business email. The footer and contact section hide it while this is empty.
-    formAction: ""   # TODO: quote form endpoint (Formspree or a Cloudflare form). Empty keeps the form disabled.
+    email: danny@nocotechbench.com
+    formAction: https://n8n.dabzhub.xyz/webhook/quote
     area: Loveland and Fort Collins, CO
 
 taxonomies:

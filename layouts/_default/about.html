@@ -17,41 +17,111 @@
 
     {{- with site.Params.contact.email }}
     <p class="prose contact-email">Email me at <a href="mailto:{{ . }}">{{ . }}</a>.</p>
-    {{- else }}
-    {{- with .Params.emailTodo }}
-    <p class="todo-note"><strong>TODO:</strong> {{ . }}</p>
-    {{- end }}
     {{- end }}
 
     {{- $action := site.Params.contact.formAction }}
-    {{- if not $action }}
-    {{- with .Params.formTodo }}
-    <p class="todo-note"><strong>TODO:</strong> {{ . }}</p>
-    {{- end }}
-    {{- end }}
-
-    <form class="quote-form" {{- with $action }}action="{{ . }}" method="post"{{ end }}>
-      <label for="quote-name">Name
+    {{- $email := site.Params.contact.email }}
+    <form class="quote-form"{{ with $action }} action="{{ . }}" method="post"{{ end }}{{ with $email }} data-email="{{ . }}"{{ end }}>
+      <label for="quote-name">
+        <span>Name</span>
         <input id="quote-name" name="name" type="text" autocomplete="name" {{ if $action }}required{{ else }}disabled{{ end }}>
       </label>
-      <label for="quote-email">Email
+      <label for="quote-email">
+        <span>Email</span>
         <input id="quote-email" name="email" type="email" autocomplete="email" {{ if $action }}required{{ else }}disabled{{ end }}>
       </label>
-      <label for="quote-need">What do you need?
-        <select id="quote-need" name="need" {{ if $action }}required{{ else }}disabled{{ end }}>
+      <label for="quote-phone">
+        <span>Phone <span class="quote-optional">(optional)</span></span>
+        <input id="quote-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" {{ if not $action }}disabled{{ end }}>
+      </label>
+      <label for="quote-service">
+        <span>What do you need?</span>
+        <select id="quote-service" name="service" {{ if $action }}required{{ else }}disabled{{ end }}>
           <option value="">Pick one</option>
-          <option>Custom PC build</option>
-          <option>PCPartPicker list</option>
-          <option>Upgrade</option>
-          <option>Repair or tune-up</option>
-          <option>Not sure yet</option>
+          <option value="Custom PC build">Custom PC build</option>
+          <option value="PC parts list help">PC parts list help</option>
+          <option value="Upgrade">Upgrade</option>
+          <option value="Repair or tune-up">Repair or tune-up</option>
+          <option value="Not sure yet">Not sure yet</option>
         </select>
       </label>
-      <label for="quote-message">Message
+      <label for="quote-budget">
+        <span>Budget <span class="quote-optional">(optional)</span></span>
+        <input id="quote-budget" name="budget" type="text" autocomplete="off" {{ if not $action }}disabled{{ end }}>
+      </label>
+      <label for="quote-message">
+        <span>Message</span>
         <textarea id="quote-message" name="message" rows="5" {{ if $action }}required{{ else }}disabled{{ end }}></textarea>
       </label>
-      <button class="btn btn-primary" type="submit" {{ if not $action }}disabled{{ end }}>{{ if $action }}Send{{ else }}Form not set up yet{{ end }}</button>
+      {{- if $action }}
+      <input type="hidden" name="page" value="{{ .Permalink }}">
+      <div class="quote-hp" aria-hidden="true">
+        <label for="quote-website">Website
+          <input id="quote-website" name="website" type="text" tabindex="-1" aria-hidden="true" autocomplete="off">
+        </label>
+      </div>
+      {{- end }}
+      <button class="btn btn-primary" type="submit" {{ if not $action }}disabled{{ end }}>{{ if $action }}Send request{{ else }}Form not set up yet{{ end }}</button>
     </form>
+    {{- if $action }}
+    <script>
+      (function () {
+        var form = document.querySelector(".quote-form");
+        if (!form || !window.fetch || !window.URLSearchParams || !window.FormData) return;
+
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+          if (form.getAttribute("data-sending") === "1") return;
+          form.setAttribute("data-sending", "1");
+
+          var button = form.querySelector('button[type="submit"]');
+          var label = button ? button.textContent : "";
+          var oldError = form.querySelector(".quote-error");
+          if (oldError) oldError.remove();
+          if (button) {
+            button.disabled = true;
+            button.textContent = "Sending...";
+          }
+
+          fetch(form.getAttribute("action"), {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(new FormData(form))
+          }).then(function (response) {
+            if (!response.ok) throw new Error("Request failed");
+            var thanks = document.createElement("p");
+            thanks.className = "quote-thanks";
+            thanks.setAttribute("role", "status");
+            thanks.tabIndex = -1;
+            thanks.textContent = "Thanks! I got your request and I'll get back to you soon, usually within a day.";
+            form.replaceWith(thanks);
+            thanks.focus();
+          }).catch(function () {
+            form.removeAttribute("data-sending");
+            if (button) {
+              button.disabled = false;
+              button.textContent = label;
+            }
+            var note = document.createElement("p");
+            note.className = "quote-error";
+            note.setAttribute("role", "alert");
+            var email = form.getAttribute("data-email");
+            if (email) {
+              note.append("Sorry, that didn't send. Email me at ");
+              var link = document.createElement("a");
+              link.href = "mailto:" + email;
+              link.textContent = email;
+              note.append(link);
+              note.append(" and I'll get back to you.");
+            } else {
+              note.textContent = "Sorry, that didn't send. Please try again in a bit.";
+            }
+            form.appendChild(note);
+          });
+        });
+      })();
+    </script>
+    {{- end }}
   </section>
 
 </article>
