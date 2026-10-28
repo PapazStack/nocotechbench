@@ -10,12 +10,11 @@ markup:
       typographer: false
 
 params:
-  description: Custom PC builds, parts lists, upgrades, and some repairs in Loveland and Fort Collins, Colorado.
+  description: Custom PC builds, parts lists, upgrades, and some repairs in Northern Colorado.
   mainSections: [blog]
   contact:
     email: danny@nocotechbench.com
     formAction: https://n8n.dabzhub.xyz/webhook/quote
-    area: Loveland and Fort Collins, CO
 
 taxonomies:
   category: categories
@@ -27,5 +26,4 @@ menus:
     - { name: PC Services, pageRef: /services, weight: 20 }
     - { name: Builds, pageRef: /builds, weight: 30 }
     - { name: Blog, pageRef: /blog, weight: 40 }
-    - { name: Resources, pageRef: /resources, weight: 50 }
-    - { name: About & Contact, pageRef: /about, weight: 60 }
+    - { name: About & Contact, pageRef: /about, weight: 50 }
