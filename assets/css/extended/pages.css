@@ -53,6 +53,36 @@
     color: var(--primary);
 }
 
+.price-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gap);
+    margin: 16px 0 0;
+}
+
+.price-list div {
+    display: grid;
+    gap: 6px;
+    align-content: start;
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--entry);
+}
+
+.price-list dt {
+    color: var(--primary);
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.price-list dd {
+    margin: 0;
+    color: var(--secondary);
+    font-size: 15px;
+    line-height: 1.45;
+}
+
 .todo-note {
     margin-top: 12px;
     padding: 12px 14px;
@@ -314,7 +344,8 @@
 @media (max-width: 860px) {
     .service-grid,
     .parts,
-    .build-gallery {
+    .build-gallery,
+    .price-list {
         grid-template-columns: 1fr;
     }
 
