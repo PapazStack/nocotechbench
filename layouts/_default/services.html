@@ -12,23 +12,34 @@
   <p class="prose">{{ . }}</p>
   {{- end }}
 
-  {{- $prices := "" }}
-  {{- range .Params.services }}
-  {{- $prices = printf "%s %s" $prices .price }}
-  {{- end }}
-  {{- if and .Params.priceTodo (in $prices "TODO") }}
-  <p class="todo-note"><strong>TODO:</strong> {{ .Params.priceTodo }}</p>
-  {{- end }}
-
   <div class="service-grid">
     {{- range .Params.services }}
     <article class="home-card">
       <h2>{{ .title }}</h2>
       <p>{{ .text }}</p>
-      <p class="{{ if in .price "TODO" }}todo-note{{ else }}service-price{{ end }}">{{ .price }}</p>
+      {{- with .price }}
+      <p class="service-price">{{ . }}</p>
+      {{- end }}
     </article>
     {{- end }}
   </div>
+
+  {{- with .Params.prices }}
+  <section id="prices" aria-labelledby="prices-heading">
+    <h2 id="prices-heading">Prices</h2>
+    {{- with $.Params.priceNote }}
+    <p class="prose">{{ . }}</p>
+    {{- end }}
+    <dl class="price-list">
+      {{- range . }}
+      <div>
+        <dt>{{ .item }}</dt>
+        <dd>{{ .amount }}</dd>
+      </div>
+      {{- end }}
+    </dl>
+  </section>
+  {{- end }}
 
   <section aria-labelledby="how-it-works">
     <h2 id="how-it-works">How it works</h2>

@@ -4,20 +4,33 @@ layout: services
 description: Custom PC builds, PCPartPicker lists, upgrades, and some repairs and tune-ups in Loveland and Fort Collins.
 lede: Local to Loveland and Fort Collins. Evenings and weekends.
 intro: I build custom PCs, help you pick parts, and do upgrades. I also do some repairs and tune-ups. I do this evenings and weekends.
-priceTodo: Replace each From $TODO with a real starting price.
+priceNote: These prices are for my labor only. You buy the parts. The final price depends on the job, and I'll give you a quote before any work starts.
+prices:
+  - item: Custom PC build
+    amount: $100 flat, or $40/hr for bigger builds
+  - item: PC parts list help
+    amount: Free with a build, or $25 on its own
+  - item: RAM, SSD/HDD, or fan install
+    amount: $35
+  - item: GPU or power supply swap
+    amount: $50
+  - item: CPU upgrade
+    amount: $75
+  - item: Motherboard swap
+    amount: $100
+  - item: Quick fix (under 30 minutes)
+    amount: $20
+  - item: Tune-up or standard repair
+    amount: Starting at $60
 services:
   - title: Custom PC builds
     text: I build the PC around your budget and what you play or work on. You order the parts, and I put them together.
-    price: "From $TODO"
   - title: PCPartPicker lists
     text: I help you pick parts that fit your budget and what you use the PC for. You get a PCPartPicker list with links, and a short note on why I picked each part. You order the parts.
-    price: "From $TODO"
   - title: Upgrades
     text: On a desktop I can install a GPU, RAM, an SSD or other storage, a CPU, a power supply, or cooling. On a laptop I can do RAM, an SSD, the battery, or a fan. You order the part.
-    price: "From $TODO"
   - title: Some repairs and tune-ups
     text: Slow PC cleanup, a Windows reinstall, getting files backed up or moved, hardware diagnosis and part swaps, cleaning and dusting, and fixing boot problems.
-    price: "From $TODO"
 steps:
   - title: Message me
     text: Tell me what you need. A new PC, a parts list, an upgrade, or a repair or tune-up.
