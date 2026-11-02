@@ -274,11 +274,18 @@
     }
 
     .site-footer {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
     }
+}
 
-    .site-footer > :first-child {
-        grid-column: 1 / -1;
+@media (max-width: 540px) {
+    .menu {
+        flex-wrap: wrap;
+        overflow-x: visible;
+        white-space: normal;
+        row-gap: 4px;
+        margin: 4px 0 12px;
+        line-height: 1.5;
     }
 }
 

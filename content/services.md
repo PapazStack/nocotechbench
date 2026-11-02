@@ -1,8 +1,8 @@
 ---
 title: PC Services
 layout: services
-description: Custom PC builds, PCPartPicker lists, upgrades, and some repairs and tune-ups in Loveland and Fort Collins.
-lede: Local to Loveland and Fort Collins. Evenings and weekends.
+description: Custom PC builds, PCPartPicker lists, upgrades, and some repairs and tune-ups in Northern Colorado.
+lede: Based in Northern Colorado. Evenings and weekends.
 intro: I build custom PCs, help you pick parts, and do upgrades. I also do some repairs and tune-ups. I do this evenings and weekends.
 priceNote: These prices are for my labor only. You buy the parts. The final price depends on the job, and I'll give you a quote before any work starts.
 prices:

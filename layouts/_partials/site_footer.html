@@ -1,4 +1,4 @@
-{{- /* Site-wide footer: contact details, area served and nav links. Rendered above PaperMod's copyright line. */ -}}
+{{- /* Site-wide footer: contact email and nav links. Rendered above PaperMod's copyright line. */ -}}
 <div class="site-footer">
     <div>
         <strong>{{ site.Title }}</strong>
@@ -8,9 +8,6 @@
         <h2>Contact</h2>
         {{- with site.Params.contact.email }}
         <p><a href="mailto:{{ . }}">{{ . }}</a></p>
-        {{- end }}
-        {{- with site.Params.contact.area }}
-        <p>Serving {{ . }}</p>
         {{- end }}
     </div>
     <nav aria-label="Footer">

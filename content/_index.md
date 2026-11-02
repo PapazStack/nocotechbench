@@ -1,11 +1,11 @@
 ---
 title: Home
-description: Custom PC builds, parts lists, upgrades, and some repairs in Loveland and Fort Collins, Colorado.
+description: Custom PC builds, parts lists, upgrades, and some repairs in Northern Colorado.
 cover:
   image: images/builds/9800x3d/02-interior.jpg
   alt: Interior of a dual-chamber PC with the lights on. Purple fans sit up top, yellow and pink fans line the side and bottom, two T-Force RGB memory sticks are lit, and a dual-tower Thermalright cooler covers the CPU.
 hero:
-  heading: Custom PCs, parts lists, upgrades, and repairs in Loveland and Fort Collins
+  heading: Custom PCs, parts lists, upgrades, and repairs in Northern Colorado
   subheading: Built and fixed by a CompTIA A+ certified tech.
   image: images/builds/9800x3d/02-interior.jpg
   imageAlt: Interior of a dual-chamber PC with the lights on. Purple fans sit up top, yellow and pink fans line the side and bottom, two T-Force RGB memory sticks are lit, and a dual-tower Thermalright cooler covers the CPU.

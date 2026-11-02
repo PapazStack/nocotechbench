@@ -2,12 +2,12 @@
 title: About & Contact
 layout: about
 heading: Hey, I'm Daniel
-description: I build PCs, pick parts, and do upgrades and some repairs in Loveland and Fort Collins. CompTIA A+ certified.
+description: I build PCs, pick parts, and do upgrades and some repairs in Northern Colorado. CompTIA A+ certified.
 contactText: Tell me what you're after. A build, a parts list, an upgrade, or a repair or tune-up. If you have a budget, include it, and say what you use the computer for.
 ---
 
-My name's Daniel Roybal. I live in the Loveland and Fort Collins area with my three kids. Papaz is my gaming name. I call the business NoCo Tech Bench. NoCo means Northern Colorado.
+My name's Daniel Roybal. I live in Northern Colorado with my three kids. Papaz is my gaming name. I call the business NoCo Tech Bench. NoCo means Northern Colorado.
 
 I passed CompTIA A+ in June 2025, and I'm studying for Network+ now. I also work part-time as an IT technician at IT Colorado, a local MSP. There I do things like imaging Windows laptops and setting up Macs. The builds, parts lists, upgrades, and repairs on this site are what I do evenings and weekends.
 
-You message me, I send a quote for the work or a parts list with links, and you order the parts. Then we set a pickup in Loveland or Fort Collins.
+You message me, I send a quote for the work or a parts list with links, and you order the parts. Then we set a pickup in Northern Colorado.
