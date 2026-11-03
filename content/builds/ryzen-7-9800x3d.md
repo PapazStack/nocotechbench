@@ -43,9 +43,3 @@ gallery:
     alt: Closer view of that back-chamber cable bundle, with the white Corsair fans and the Ignition power supply.
     caption: Back chamber, closer
 ---
-
-This is a PC I put together in a dual-chamber case with a glass side. The glass has stickers on it. They're not part of the build.
-
-The memory is TeamGroup T-Force RGB DDR5. I'm not sure of the exact kit, so speed and size aren't listed. The power supply is an Ignition unit. I'm not sure of the exact model, so there's no wattage listed.
-
-If you want something like this, tell me your budget and what you play or work on. You order the parts, and I build it.

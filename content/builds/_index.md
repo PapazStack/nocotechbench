@@ -1,6 +1,6 @@
 ---
 title: Builds
-description: Some of the PCs I've put together. The cable management build is a showcase. It does not run.
+description: Some of the PCs I've put together. The cable management build is not for sale.
 ---
 
-Some of the PCs I've put together. The cable management build is a showcase. It does not run, and it is not for sale.
+Some of the PCs I've put together. The cable management build is not for sale.
