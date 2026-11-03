@@ -60,6 +60,9 @@
           <input id="quote-website" name="website" type="text" tabindex="-1" aria-hidden="true" autocomplete="off">
         </label>
       </div>
+      {{- with site.Params.turnstileSiteKey }}
+      <div class="cf-turnstile" data-sitekey="{{ . }}" data-theme="auto"></div>
+      {{- end }}
       {{- end }}
       <button class="btn btn-primary" type="submit" {{ if not $action }}disabled{{ end }}>{{ if $action }}Send request{{ else }}Form not set up yet{{ end }}</button>
     </form>
@@ -72,23 +75,47 @@
         form.addEventListener("submit", function (event) {
           event.preventDefault();
           if (form.getAttribute("data-sending") === "1") return;
-          form.setAttribute("data-sending", "1");
 
           var button = form.querySelector('button[type="submit"]');
           var label = button ? button.textContent : "";
           var oldError = form.querySelector(".quote-error");
           if (oldError) oldError.remove();
+
+          var params = new URLSearchParams(new FormData(form));
+          var tokenInput = form.querySelector('input[name="cf-turnstile-response"]');
+          var token = tokenInput ? tokenInput.value.trim() : "";
+          if (token) params.set("cf-turnstile-response", token);
+          if (form.querySelector(".cf-turnstile") && !token) {
+            var wait = document.createElement("p");
+            wait.className = "quote-error";
+            wait.setAttribute("role", "status");
+            wait.textContent = "Please wait a second for the spam check to finish, then try again.";
+            form.appendChild(wait);
+            return;
+          }
+
+          form.setAttribute("data-sending", "1");
           if (button) {
             button.disabled = true;
             button.textContent = "Sending...";
           }
 
+          function resetTurnstile() {
+            if (!window.turnstile || typeof window.turnstile.reset !== "function") return;
+            var slot = document.querySelector(".quote-form .cf-turnstile");
+            if (!slot) return;
+            try {
+              window.turnstile.reset(slot);
+            } catch (err) {}
+          }
+
           fetch(form.getAttribute("action"), {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(new FormData(form))
+            body: params
           }).then(function (response) {
             if (!response.ok) throw new Error("Request failed");
+            resetTurnstile();
             var thanks = document.createElement("p");
             thanks.className = "quote-thanks";
             thanks.setAttribute("role", "status");
@@ -98,6 +125,7 @@
             thanks.focus();
           }).catch(function () {
             form.removeAttribute("data-sending");
+            resetTurnstile();
             if (button) {
               button.disabled = false;
               button.textContent = label;
@@ -121,6 +149,9 @@
         });
       })();
     </script>
+    {{- with site.Params.turnstileSiteKey }}
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    {{- end }}
     {{- end }}
   </section>
 

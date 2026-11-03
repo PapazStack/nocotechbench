@@ -280,6 +280,10 @@
     justify-self: start;
 }
 
+.quote-form .cf-turnstile {
+    justify-self: start;
+}
+
 .quote-form :disabled {
     opacity: 0.72;
     cursor: not-allowed;
