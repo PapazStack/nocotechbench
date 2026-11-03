@@ -12,6 +12,7 @@ markup:
 params:
   description: Custom PC builds, parts lists, upgrades, and some repairs in Northern Colorado.
   mainSections: [blog]
+  turnstileSiteKey: 0x4AAAAAAFxYXmAF71j8YgqP
   contact:
     email: danny@nocotechbench.com
     formAction: https://n8n.dabzhub.xyz/webhook/quote
