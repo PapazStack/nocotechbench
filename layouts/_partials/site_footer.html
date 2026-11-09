@@ -9,6 +9,9 @@
         {{- with site.Params.contact.email }}
         <p><a href="mailto:{{ . }}">{{ . }}</a></p>
         {{- end }}
+        {{- with site.Params.contact.phone }}
+        <p>Call or text <a href="tel:{{ site.Params.contact.phoneTel }}">{{ . }}</a></p>
+        {{- end }}
     </div>
     <nav aria-label="Footer">
         <h2>Links</h2>

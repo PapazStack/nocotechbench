@@ -18,6 +18,9 @@
     {{- with site.Params.contact.email }}
     <p class="prose contact-email">Email me at <a href="mailto:{{ . }}">{{ . }}</a>.</p>
     {{- end }}
+    {{- with site.Params.contact.phone }}
+    <p class="prose contact-email">Call or text <a href="tel:{{ site.Params.contact.phoneTel }}">{{ . }}</a>.</p>
+    {{- end }}
 
     {{- $action := site.Params.contact.formAction }}
     {{- $email := site.Params.contact.email }}
